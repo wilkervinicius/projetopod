@@ -1,40 +1,387 @@
 package pod;
 
-import java.util.Scanner;
+import java.time.Instant;
+import java.util.Arrays;
+import java.util.List;
 
 public class Pod {
-	private static Scanner teclado;
+    public static void main(String[] args) {
+        Ordenador ordenador = new Ordenador();
+        List<Integer> multiplicadores = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-	public static void main(String[] args){
-		int posicoes;
-		int[] vetor;
-		int i;
-		teclado = new Scanner(System.in);
-		System.out.println("Informe a quantidade de posi√ß√µes:");
-		posicoes = teclado.nextInt();
-		vetor = new int[posicoes] ;
-		System.out.println("A quantidade de posicoes do vetor √© :" + posicoes );
-		
-		for (i=0; i<posicoes; i++) {
-			System.out.println("Informe o valor da posicao "+ (i+1) +" :");
-			vetor[i] = teclado.nextInt();
-			
-		}
-		
-		
-	   	
-	   //Bolha bolha = new Bolha();
-	   //bolha.mostra(vetor);
-	   Insercao insercao = new Insercao();
-	   //bolha.troca(vetor);
-	   insercao.mostra(vetor);
-	   //insercao.insercaoCrescente(vetor);
-	   insercao.insercaoDecrescente(vetor);
-	   
-	   insercao.mostraordenacaoInsercao(vetor);
-		
-	}
+/*        System.out.println("****** BOLHA ******");
 
+        System.out.println("****** Vetor AleatÛrio ******");
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolha(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+            
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolha(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolha(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        System.out.println("****** BOLHA ******");
+
+        System.out.println("****** Vetor Crescente ******");
+
+        
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolha(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolha(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolha(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+*/
+/*        System.out.println("****** BOLHA ******");
+
+        System.out.println("****** Vetor Decrescente ******");
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolha(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolha(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+     for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolha(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        System.out.println("****** BOLHA C/ FLAG ******");
+
+        System.out.println("****** Vetor AleatÛrio ******");
+
+/*      for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolhaComFlag(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolhaComFlag(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolhaComFlag(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+/*        System.out.println("****** BOLHA C/ FLAG ******");
+
+        System.out.println("****** Vetor Crescente ******");
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolhaComFlag(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolhaComFlag(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+       }
+
+      for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolhaComFlag(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        System.out.println("****** BOLHA C/ FLAG ******");
+
+        System.out.println("****** Vetor Decrescente ******");
+
+       for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolhaComFlag(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+       for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolhaComFlag(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+       for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.bolhaComFlag(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+*/       System.out.println("****** INSERCAO ******");
+
+        System.out.println("****** Vetor AleatÛrio ******");
+
+ /*       for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.insercao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total InserÁ„o AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.insercao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total InserÁ„o AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+ */      for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.insercao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total InserÁ„o AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        /*System.out.println("****** INSERCAO ******");
+
+        System.out.println("****** Vetor Crescente ******");
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.insercao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total InserÁ„o Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.insercao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total InserÁ„o Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.insercao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total InserÁ„o Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        System.out.println("****** INSERCAO ******");
+
+        System.out.println("****** Vetor Decrescente ******");
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.insercao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.insercao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.insercao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total Bolha c/ Flag Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }*/
+/*
+        System.out.println("****** SELECAO ******");
+
+        System.out.println("****** Vetor AleatÛrio ******");
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.selecao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total SeleÁ„o AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.selecao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total SeleÁ„o AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorAleatorio(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.selecao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total SeleÁ„o AleatÛrio com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+*/
+        /*System.out.println("****** SELECAO ******");
+
+        System.out.println("****** Vetor Crescente ******");
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.selecao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total SeleÁ„o Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.selecao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total SeleÁ„o Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorCrescente(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.selecao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total SeleÁ„o Crescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        System.out.println("****** SELECAO ******");
+
+        System.out.println("****** Vetor Decrescente ******");
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(1000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.selecao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total SeleÁ„o Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(10000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.selecao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total SeleÁ„o Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }
+
+        for (int multiplicador : multiplicadores) {
+            int[] vetor = Vetor.getVetorDecrescente(100000 * multiplicador);
+            Instant inicio = Instant.now();
+            ordenador.selecao(vetor);
+            Instant fim = Instant.now();
+            Long tempoTotal = Temporizador.calculaTempoTotal(inicio, fim);
+            System.out.println("Tempo total SeleÁ„o Decrescente com " + vetor.length + " elementos: " + tempoTotal + "ms");
+        }*/
+    }
 }
 
 
