@@ -75,7 +75,7 @@ public class Ordenador {
 
             j = i;
             
-            if (j>=vetor.length) 
+            if (j>=vetor.length -1) 
             	 break;
             
             while (j > 0 &&  vetor[j] > vetor[j + 1]) {
@@ -123,47 +123,7 @@ public class Ordenador {
     }
    
    
-    public int[] combina( int [] vetor, int inicio, int meio, int fim ) {
-    	
-    	int [] v1 = new int [meio - inicio];
-    	int [] v2 = new int [meio +1 - fim];
-    	
-    	for (int i =0; i < v1.length; i++ ){
-    		
-    		v1[i] = vetor[inicio +i];
-    	}
-         
-    	for (int i =0; i < v2.length -1; i++ ){
-    		
-    		v2[i] = vetor[meio +1 +i];
-    	}    	
-    	
-    	int i = 0;
-    	int j = 0;
-    	
-    	for (int k = inicio; k <= fim; k++){
-    		
-    		if (i < v1.length && j < v2.length){
-    			
-    			if (v1[i] < v2[j]) {
-    				vetor[k] = v1[i++];
-    				
-    			} else {
-    				vetor[k] = v2[j++];
-    			}
-    		} else if( i < v1.length) {
-    			
-    			    vetor[k] = v1[i++];
-    		}
-              else if( j < v2.length) {
-    			  
-            	  vetor[k] = v2[j++];
-    			
-    		}
-    	}
-    	
-    	return vetor;
-    }
+   
     
     
    public int [] mergesort (int [] vetor, int inicio, int fim ) {
@@ -181,7 +141,92 @@ public class Ordenador {
 	   return vetor; 
    }    
     
-    
+   public int[] combina( int [] vetor, int inicio, int meio, int fim ) {
+   	
+   	int [] v1 = new int [meio - inicio];
+   	int [] v2 = new int [meio + 1 - fim];
+   	
+   	for (int i =0; i < v1.length; i++ ){
+   		
+   		v1[i] = vetor[inicio +i];
+   	}
+        
+   	for (int i =0; i < v2.length -1; i++ ){
+   		
+   		v2[i] = vetor[meio +1 +i];
+   	}    	
+   	
+   	int i = 0;
+   	int j = 0;
+   	
+   	for (int k = inicio; k <= fim; k++){
+   		
+   		if (i < v1.length && j < v2.length){
+   			
+   			if (v1[i] < v2[j]) {
+   				vetor[k] = v1[i++];
+   				
+   			} else {
+   				vetor[k] = v2[j++];
+   			}
+   		} else if( i < v1.length) {
+   			
+   			    vetor[k] = v1[i++];
+   		}
+             else if( j < v2.length) {
+   			  
+           	  vetor[k] = v2[j++];
+   			
+   		}
+   	}
+   	
+   	return vetor;
+   }
+   
+   public int [] quicksort (int [] vetor, int inicio, int fim){
+	   
+	   if (inicio <= fim) 
+	    	 return vetor;
+	    
+	   // int pivo = vetor[inicio];
+	    divide(vetor,inicio,fim -1);
+	    quicksort(vetor, inicio, divide(vetor,inicio,fim) -1);
+	    quicksort(vetor,divide(vetor,inicio,fim) +1 ,fim);
+	   
+	   
+	 return vetor;  
+   }
+   
+   
+   public int divide (int [] vetor, int inicio, int fim) {
+	   int pivo = vetor[inicio];
+	   int i = inicio + 1;
+	   int j = fim;
+	   
+	   while ( i<=j) {
+		   
+		   while ( i <=j && vetor[i]<pivo){
+			   i++;
+		   }
+		   while ( i <=j && vetor[j]>=pivo){
+			   j--;
+		   }		   
+	   
+	       if(vetor[i] <= vetor[j]) {
+	    	   
+	    	   troca(vetor,i,j);
+	    	   i++;
+	    	   j--;
+	       } 
+	       
+	       
+	   }
+	   if (vetor[inicio]> vetor[j]) {
+    	   
+    	   troca(vetor, j, inicio);
+	   }
+ 	   return j;
+   }
     
     public int[] troca(int[] vetor, int j) {
 
